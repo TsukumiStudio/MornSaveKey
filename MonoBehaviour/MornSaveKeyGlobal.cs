@@ -1,4 +1,3 @@
-using MornGlobal;
 using UnityEngine;
 
 namespace MornLib
@@ -7,7 +6,7 @@ namespace MornLib
     public sealed class MornSaveKeyGlobal : MornGlobalBase<MornSaveKeyGlobal>
     {
         [SerializeField] private string[] _saveKeys;
-        protected override string ModuleName => nameof(MornSaveKey);
+        public override string ModuleName => nameof(MornSaveKey);
         public string[] SaveKeyNames => _saveKeys;
     }
 }

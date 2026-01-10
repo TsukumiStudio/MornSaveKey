@@ -17,7 +17,7 @@ namespace MornLib
         {
             if (!_dataStore.FloatTable.Contains(_saveKey))
             {
-                MornSaveKeyLogger.LogError($"SaveKey[{_saveKey}] が登録されていません。適切に初期化してください。");
+                MornSaveKeyGlobal.Logger.LogError($"SaveKey[{_saveKey}] が登録されていません。適切に初期化してください。");
                 return;
             }
 
