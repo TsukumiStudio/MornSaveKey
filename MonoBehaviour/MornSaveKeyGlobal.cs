@@ -6,7 +6,7 @@ namespace MornLib
     public sealed class MornSaveKeyGlobal : MornGlobalBase<MornSaveKeyGlobal>
     {
         [SerializeField] private string[] _saveKeys;
-        public override string ModuleName => nameof(MornSaveKey);
+        protected override string ModuleName => nameof(MornSaveKey);
         public string[] SaveKeyNames => _saveKeys;
     }
 }
