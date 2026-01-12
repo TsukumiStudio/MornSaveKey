@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UniRx;
 
+[assembly: InternalsVisibleTo("MornArbor")]
 namespace MornLib
 {
     public static class MornSaveKeyCore<TValue>

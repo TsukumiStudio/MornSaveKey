@@ -10,18 +10,18 @@ namespace MornLib
     {
         [SerializeField] private Toggle _toggle;
         [SerializeField] private MornSaveKey _saveKey;
-        [Inject] private IMornSaveKeyUserDataStore _dataStore;
+        [Inject] private IMornSaveKeyUserDataStoreSolver _dataStore;
         private bool _selfChangeLock;
 
         private void Awake()
         {
-            if (!_dataStore.FloatTable.Contains(_saveKey))
+            if (!_dataStore.Solve().FloatTable.Contains(_saveKey))
             {
                 MornSaveKeyGlobal.Logger.LogError($"SaveKey[{_saveKey}] が登録されていません。適切に初期化してください。");
                 return;
             }
 
-            var userData = _dataStore.BoolTable.GetOrCreateUserData(_saveKey, false);
+            var userData = _dataStore.Solve().BoolTable.GetOrCreateUserData(_saveKey, false);
             ApplyValue(userData.Value);
             userData.OnValueChanged().Where(_ => !_selfChangeLock).Subscribe(ApplyValue).AddTo(this);
             _toggle.OnValueChangedAsObservable().Subscribe(x =>
