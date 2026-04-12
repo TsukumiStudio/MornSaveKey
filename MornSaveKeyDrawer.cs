@@ -1,14 +1,3 @@
-#if UNITY_EDITOR
-using UnityEditor;
-using UnityEngine;
-
-namespace MornLib
-{
-    [CustomPropertyDrawer(typeof(MornSaveKey))]
-    public class MornSaveKeyDrawer : MornEnumDrawerBase
-    {
-        protected override string[] Values => MornSaveKeyGlobal.I.SaveKeyNames;
-        protected override Object PingTarget => MornSaveKeyGlobal.I;
-    }
-}
-#endif
+// MornEnumDrawer (useForChildren: true) が自動的に MornSaveKey を描画するため、
+// 個別の Drawer は不要になりました。
+// このファイルは互換性のために残しています。
