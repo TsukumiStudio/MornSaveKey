@@ -1,10 +1,12 @@
 #if USE_ARBOR
 using Arbor;
+using System;
 using UnityEngine;
 using VContainer;
 
 namespace MornLib
 {
+    [Serializable]
     public class MornSaveFloatState : StateBehaviour
     {
         [Inject] private IMornSaveKeyUserDataStoreSolver _save;
